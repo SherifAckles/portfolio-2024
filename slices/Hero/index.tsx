@@ -11,14 +11,14 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   const renderLetters = (name: KeyTextField, key: string) => {
-    if (!name)
-      return name.split("").map((letter, index) => (
-        <span
-          key={index}
-          className={`name-animation name-animation-${key}-index inline-block opacity-0`}>
-          {letter}
-        </span>
-      ));
+    if (!name) return;
+    return name.split("").map((letter, index) => (
+      <span
+        key={index}
+        className={`name-animation name-animation-${key}-index inline-block opacity-0 `}>
+        {letter}
+      </span>
+    ));
   };
 
   return (
@@ -40,7 +40,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               {renderLetters(slice.primary.last_name, "last")}
             </span>
           </h1>
-          <span className='block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl'>
+          <span className='block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-100 md:text-4xl'>
             {slice.primary.tag_line}
           </span>
         </div>
